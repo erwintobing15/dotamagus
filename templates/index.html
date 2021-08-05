@@ -3,10 +3,9 @@
 {% block title_block %}Home{% endblock %}
 {% block body_block %}
 
-<!-- heroes draft for team radiant and dire -->
 <div class="container">
   <div class="row">
-    <!-- team radiant -->
+    <!-- heroes draft for team radiant -->
     <div id="radiantDraft" class="col-xs-12 col-md-6">
       <p>Tim Radiant</p>
       <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
@@ -15,7 +14,7 @@
       <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
       <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
     </div>
-    <!-- team dire -->
+    <!-- heroes draft for team dire -->
     <div id="direDraft" class="col-xs-12 col-md-6">
       <p>Tim Dire</p>
       <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
@@ -25,13 +24,32 @@
       <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
     </div>
   </div>
+  <!-- recommendation heroes and match prediction button -->
   <div id="draftButton" class="row">
     <div class="col-xs-12 col-md-12">
       <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
       <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
     </div>
   </div>
+  <div class="row">
+    <!-- list of heroes recommendation -->
+    <div id="heroesRecommendation" class="col-xs-12 col-md-10">
+      <p>Daftar Hero Rekomendasi</p>
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+    </div>
+    <!-- display match prediction result -->
+    <div id="predicteResult" class="col-xs-12 col-md-2">
+      <p>Persentase Menang</p>
+      <h1>74%</h1>
+    </div>
+  </div>
 </div>
-
 
 {% endblock %}

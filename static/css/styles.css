@@ -13,3 +13,9 @@
   text-align: center;
   padding: 10px;
 }
+
+#heroesRecommendation, #predicteResult {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
