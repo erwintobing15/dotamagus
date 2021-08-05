@@ -1,12 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title_block %}Home{% endblock %}
 {% block body_block %}
 
-<p>Dota 2 Heroes Recommendation and Match Prediction</p>
-
-<fieldset>
-  <legend>Tim Radiant</legend>
-</fieldset>
+<!-- heroes draft for team radiant and dire -->
+<div class="container">
+  <div class="row">
+    <!-- team radiant -->
+    <div id="radiantDraft" class="col-xs-12 col-md-6">
+      <p>Tim Radiant</p>
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+    </div>
+    <!-- team dire -->
+    <div id="direDraft" class="col-xs-12 col-md-6">
+      <p>Tim Dire</p>
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="19%">
+    </div>
+  </div>
+  <div id="draftButton" class="row">
+    <div class="col-xs-12 col-md-12">
+      <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
+      <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
+    </div>
+  </div>
+</div>
 
 
 {% endblock %}

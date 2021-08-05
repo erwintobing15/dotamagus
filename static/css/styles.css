@@ -1,7 +1,15 @@
-h1 {
-  color: red;
+#radiantDraft {
+  padding: 5px;
+  border: 1px solid black;
 }
 
-p {
-  color: red;
+#direDraft {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: right;
+}
+
+#draftButton {
+  text-align: center;
+  padding: 10px;
 }
