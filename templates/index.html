@@ -58,7 +58,7 @@
       <p>Daftar Hero Tersedia</p>
       <!-- display all heroes list available to pick using  foe loop -->
       {% for name in heroes_name %}
-        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="5%">
+        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="5%" onclick="doSomething(this);">
       {% endfor %}
     </div>
   </div>
