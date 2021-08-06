@@ -5,23 +5,21 @@
 
 <div class="container">
   <div id="draft" class="row">
-    <!-- heroes draft for team radiant -->
+    <!-- heroes draft image and input for team radiant -->
     <div id="radiantDraft" class="col-xs-12 col-md-6">
       <p>Tim Radiant</p>
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+      {% for i in '12345'|make_list %}
+        <img id="draftImg{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+        <input type="hidden" id="draftInput{{i}}" name="draftInput{{i}}">
+      {% endfor %}
     </div>
-    <!-- heroes draft for team dire -->
+    <!-- heroes draft image and input for team dire -->
     <div id="direDraft" class="col-xs-12 col-md-6">
       <p>Tim Dire</p>
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-      <img src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+      {% for i in '12345'|make_list %}
+        <img id="draftImg{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+        <input type="hidden" id="draftInput{{i}}" name="draftInput{{i}}">
+      {% endfor %}
     </div>
   </div>
   <!-- recommendation heroes and match prediction button -->
