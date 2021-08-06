@@ -2,7 +2,8 @@
 var radiantCounter = 0;
 var direCounter = 0;
 
-// pick a hero, display the hero on team draft
+// pick a hero, display the hero on team draft,
+// and make hero picked unavailable to pick again
 function pickHero(img) {
   radiantCounter += 1;
 
@@ -10,7 +11,7 @@ function pickHero(img) {
   if (radiantCounter <= 5) {
     console.log("Picked " + radiantCounter + " hero for radiant team.");
     // display picked hero
-    document.getElementById("imgRadiant"+radiantCounter).src = img.src;
+    document.getElementById("radiantHero"+radiantCounter).src = img.src;
     // assign picked hero as input value
     document.getElementById("inputRadiant"+radiantCounter).value = img.alt;
 
