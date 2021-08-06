@@ -5,4 +5,5 @@ def index(request):
     return render(request, 'index.html', {})
 
 def simulation(request):
-    return render(request, 'simulation.html', {})
+    names.sort()
+    return render(request, 'simulation.html', {'names': names})
