@@ -8,17 +8,17 @@
     <!-- heroes draft image and input for team radiant -->
     <div id="radiantDraft" class="col-xs-12 col-md-6">
       <p>Tim Radiant</p>
-      {% for i in '12345'|make_list %}
-        <img id="draftImg{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-        <input type="hidden" id="draftInput{{i}}" name="draftInput{{i}}">
+    {% for i in '12345'|make_list %}
+        <img id="imgRadiant{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+        <input type="hidden" id="inputRadiant{{i}}" name="draftInput{{i}}">
       {% endfor %}
     </div>
     <!-- heroes draft image and input for team dire -->
     <div id="direDraft" class="col-xs-12 col-md-6">
       <p>Tim Dire</p>
       {% for i in '12345'|make_list %}
-        <img id="draftImg{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
-        <input type="hidden" id="draftInput{{i}}" name="draftInput{{i}}">
+        <img id="imgDire{{i}}" src="{% static 'images/empty.png' %}" alt="empty" width="19%">
+        <input type="hidden" id="inputDire{{i}}" name="draftInput{{i}}">
       {% endfor %}
     </div>
   </div>
@@ -35,7 +35,7 @@
       <p>Daftar Hero Rekomendasi</p>
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
-          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="10%" onclick="doSomething(this);">
+          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="10%" onclick="pickHero(this);">
         {% endfor %}
       {% endif %}
     </div>
@@ -53,7 +53,7 @@
       <p>Daftar Hero Tersedia</p>
       <!-- display all heroes list available to pick using  foe loop -->
       {% for name in heroes_name %}
-        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="5%" onclick="doSomething(this);">
+        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="5%" onclick="pickHero(this);">
       {% endfor %}
     </div>
   </div>
