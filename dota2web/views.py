@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from .hero import ids, names
+from .hero import names, ids
 
 def index(request):
-    return render(request, 'index.html', {})
+    names.sort()
+    # modified the hereos name become image src
+    # heroes_name = ['images/'+x+'.png' for x in names]
+    return render(request, 'index.html', {'heroes_name': names})
 
 def simulation(request):
-    names.sort()
-    return render(request, 'simulation.html', {'names': names})
+    return render(request, 'simulation.html', {})
