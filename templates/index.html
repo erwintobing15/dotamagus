@@ -35,14 +35,11 @@
     <!-- list of heroes recommendation -->
     <div id="heroesRecommendation" class="col-xs-12 col-md-10">
       <p>Daftar Hero Rekomendasi</p>
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
-      <img src="{% static 'images/Abaddon.png' %}" alt="Abaddon" width="12%">
+      {% if recommendHeroes %}
+        {% for hero in recommendHeroes %}
+          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="10%" onclick="doSomething(this);">
+        {% endfor %}
+      {% endif %}
     </div>
     <!-- display match prediction result -->
     <div id="predicteResult" class="col-xs-12 col-md-2">
@@ -63,6 +60,5 @@
     </div>
   </div>
 </div>
-
 
 {% endblock %}
