@@ -47,7 +47,7 @@
     <!-- display match prediction result -->
     <div id="predicteResult" class="col-xs-12 col-md-2">
       <p>Persentase Menang</p>
-      <h1>74%</h1>
+      <h1>-</h1>
     </div>
   </div>
 </div>
@@ -58,7 +58,7 @@
       <p>Daftar Hero Tersedia</p>
       <!-- display all heroes list available to pick using  foe loop -->
       {% for name in heroes_name %}
-        <img src="../static/images/{{name}}.png" alt="{{name}}" width="5%">
+        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="5%">
       {% endfor %}
     </div>
   </div>
