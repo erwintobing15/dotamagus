@@ -1,6 +1,6 @@
 // initialize hero draft counter and picked slot
-var radiantCounter = 1;
-var direCounter = 1;
+var radiantCounter = parseInt(document.getElementById("radiantCounter").value);
+var direCounter = parseInt(document.getElementById("direCounter").value);
 
 var teamPicking = "radiant";
 
@@ -26,6 +26,7 @@ function pickHero(img) {
       document.getElementById("inputRadiant"+radiantCounter).value = img.alt;
 
       radiantCounter += 1;
+      document.getElementById("radiantCounter").value = radiantCounter;
     }
     else if (teamPicking == "dire")
     {
@@ -39,6 +40,8 @@ function pickHero(img) {
       document.getElementById("inputDire"+direCounter).value = img.alt;
 
       direCounter += 1;
+      document.getElementById("direCounter").value = direCounter;
+
     }
 
     // make hero picked unclickable and change hero img become empty picture

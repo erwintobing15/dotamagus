@@ -4,44 +4,65 @@
 {% block body_block %}
 
 <div class="container">
-  <div id="draft" class="row">
-    <!-- heroes draft image and input for team radiant -->
-    <div id="radiantDraft" class="col-xs-12 col-md-6">
-      <p>Tim Radiant</p><i class="bi bi-slash-circle-fill"></i>
-    {% for i in '12345'|make_list %}
-        <img class="zoomDraft" id="radiantHero{{i}}" src="{% static 'images/empty.png' %}"
-         alt="empty" width="19%">
-        <input type="hidden" id="inputRadiant{{i}}" name="draftInput{{i}}">
-      {% endfor %}
+  <form action="{% url 'index' %}" method="post">
+    {%  csrf_token %}
+    <div id="draft" class="row">
+      <!-- heroes draft image and input for team radiant -->
+      <div id="radiantDraft" class="col-xs-12 col-md-6">
+        <p>Tim Radiant</p><i class="bi bi-slash-circle-fill"></i>
+        {% for hero in radiant_heroes %}
+          {% if hero in heroes_name %}
+            <img class="zoomDraft" id="radiantHero{{forloop.counter}}" src="../static/images/{{hero}}.png"
+            alt="hero" width="19%">
+            <input type="hidden" id="inputRadiant{{forloop.counter}}" name="inputRadiant{{forloop.counter}}" value="{{hero}}">
+          {% else %}
+            <img class="zoomDraft" id="radiantHero{{forloop.counter}}" src="{% static 'images/empty.png' %}"
+            alt="empty" width="19%">
+            <input type="hidden" id="inputRadiant{{forloop.counter}}" name="inputRadiant{{forloop.counter}}" value="empty">
+          {% endif %}
+        {% endfor %}
+        <input type="hidden" id="radiantCounter" name="radiantCounter" value="{{radiantCounter}}">
+      </div>
+      <!-- heroes draft image and input for team dire -->
+      <div id="direDraft" class="col-xs-12 col-md-6">
+        <p>Tim Dire</p>
+        {% for hero in dire_heroes %}
+          {% if hero in heroes_name %}
+            <img class="zoomDraft" id="direHero{{forloop.counter}}" src="../static/images/{{hero}}.png"
+            alt="hero" width="19%">
+            <input type="hidden" id="inputDire{{forloop.counter}}" name="inputDire{{forloop.counter}}" value="{{hero}}">
+          {% else %}
+            <img class="zoomDraft" id="direHero{{forloop.counter}}" src="{% static 'images/empty.png' %}"
+            alt="hero" width="19%">
+            <input type="hidden" id="inputDire{{forloop.counter}}" name="inputDire{{forloop.counter}}" value="empty">
+          {% endif %}
+        {% endfor %}
+        <input type="hidden" id="direCounter" name="direCounter" value="{{direCounter}}">
+      </div>
     </div>
-    <!-- heroes draft image and input for team dire -->
-    <div id="direDraft" class="col-xs-12 col-md-6">
-      <p>Tim Dire</p>
-      {% for i in '12345'|make_list %}
-        <img class="zoomDraft" id="direHero{{i}}" src="{% static 'images/empty.png' %}"
-         alt="empty" width="19%">
-        <input type="hidden" id="inputDire{{i}}" name="draftInput{{i}}">
-      {% endfor %}
+    <!-- recommendation heroes and match prediction button -->
+    <div id="draftButton" class="row">
+      <div class="col-xs-12 col-md-12">
+        <button type="button" class="btn btn-primary" onclick="setRadiantToPick();">Pilih Radiant</button>
+        <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
+        <a class="btn btn-warning" href="{% url 'index' %}">Reset</a>
+        <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
+        <button type="button" class="btn btn-primary" onclick="setDireToPick();">Pilih Dire</button>
+      </div>
     </div>
-  </div>
-  <!-- recommendation heroes and match prediction button -->
-  <div id="draftButton" class="row">
-    <div class="col-xs-12 col-md-12">
-      <button type="button" class="btn btn-primary" onclick="setRadiantToPick();">Pilih Radiant</button>
-      <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
-      <a class="btn btn-warning" href="{% url 'index' %}">Clear</a>
-      <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
-      <button type="button" class="btn btn-primary" onclick="setDireToPick();">Pilih Dire</button>
-    </div>
-  </div>
+  </form>
   <div class="row">
     <!-- list of heroes recommendation -->
     <div id="heroesRecommendation" class="col-xs-12 col-md-10">
       <p>Daftar Hero Rekomendasi</p>
+      {% if radiant_heroes %}
+        {% for hero in radiant_heroes %}
+          <a href="#">{{hero}}</a>
+        {% endfor %}
+      {% endif %}
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
-          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}"
-           width="10%" onclick="pickHero(this);">
+          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="10%">
         {% endfor %}
       {% endif %}
     </div>
@@ -57,10 +78,14 @@
   <div id="heroesAll" class="row">
     <div class="col-xs-12 col-md-12">
       <p>Daftar Hero Tersedia</p>
-      <!-- display all heroes list available to pick using  foe loop -->
+      <!-- display all heroes list available to pick using for loop and unavailable hero as empty images -->
       {% for name in heroes_name %}
-        <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}"
-        width="5%" onclick="pickHero(this);" id="listHero{{name}}">
+        {% if name in radiant_heroes or name in dire_heroes %}
+          <img class="zoom" src="{% static 'images/empty.png' %}" alt="empty" width="5%">
+        {% else %}
+          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}"
+          width="5%" onclick="pickHero(this);" id="listHero{{name}}">
+        {% endif %}
       {% endfor %}
     </div>
   </div>

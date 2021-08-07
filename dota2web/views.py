@@ -3,9 +3,35 @@ from .hero import names, ids
 
 def index(request):
     names.sort()
-    # modified the hereos name become image src
-    # heroes_name = ['images/'+x+'.png' for x in names]
-    return render(request, 'index.html', {'heroes_name': names})
+
+    radiant_heroes = []
+    radiant_heroes.append(request.POST.get('inputRadiant1', "empty"))
+    radiant_heroes.append(request.POST.get('inputRadiant2', "empty"))
+    radiant_heroes.append(request.POST.get('inputRadiant3', "empty"))
+    radiant_heroes.append(request.POST.get('inputRadiant4', "empty"))
+    radiant_heroes.append(request.POST.get('inputRadiant5', "empty"))
+    print("Radiant draft : ", radiant_heroes)
+
+    dire_heroes = []
+    dire_heroes.append(request.POST.get('inputDire1', "empty"))
+    dire_heroes.append(request.POST.get('inputDire2', "empty"))
+    dire_heroes.append(request.POST.get('inputDire3', "empty"))
+    dire_heroes.append(request.POST.get('inputDire4', "empty"))
+    dire_heroes.append(request.POST.get('inputDire5', "empty"))
+    print("Dire draft : ", dire_heroes)
+
+    radiantCounter = request.POST.get('radiantCounter', "1")
+    direCounter = request.POST.get('direCounter', "1")
+
+    context = {
+        "heroes_name": names,
+        "radiant_heroes": radiant_heroes,
+        "dire_heroes": dire_heroes,
+        "radiantCounter": radiantCounter,
+        "direCounter": direCounter,
+    }
+
+    return render(request, 'index.html', context)
 
 def simulation(request):
     return render(request, 'simulation.html', {})
