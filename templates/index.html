@@ -7,7 +7,7 @@
   <div id="draft" class="row">
     <!-- heroes draft image and input for team radiant -->
     <div id="radiantDraft" class="col-xs-12 col-md-6">
-      <p>Tim Radiant</p>
+      <p>Tim Radiant</p><i class="bi bi-slash-circle-fill"></i>
     {% for i in '12345'|make_list %}
         <img class="zoomDraft" id="radiantHero{{i}}" src="{% static 'images/empty.png' %}"
          alt="empty" width="19%">
@@ -27,8 +27,11 @@
   <!-- recommendation heroes and match prediction button -->
   <div id="draftButton" class="row">
     <div class="col-xs-12 col-md-12">
+      <button type="button" class="btn btn-primary" onclick="setRadiantToPick();">Pilih Radiant</button>
       <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
+      <a class="btn btn-warning" href="{% url 'index' %}">Clear</a>
       <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
+      <button type="button" class="btn btn-primary" onclick="setDireToPick();">Pilih Dire</button>
     </div>
   </div>
   <div class="row">
