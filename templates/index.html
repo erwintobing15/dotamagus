@@ -55,20 +55,23 @@
     <!-- list of heroes recommendation -->
     <div id="heroesRecommendation" class="col-xs-12 col-md-10">
       <p>Daftar Hero Rekomendasi</p>
-      {% if radiant_heroes %}
+      <!-- {% if radiant_heroes %}
         {% for hero in radiant_heroes %}
           <a href="#">{{hero}}</a>
         {% endfor %}
-      {% endif %}
+      {% endif %} -->
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
-          <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}" width="10%">
+          <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="10%">
         {% endfor %}
       {% endif %}
     </div>
     <!-- display match prediction result -->
-    <div id="predicteResult" class="col-xs-12 col-md-2">
+    <div id="predictResult" class="col-xs-12 col-md-2">
       <p>Persentase Menang</p>
+      {% if predictResult %}
+        {{predictResult}}
+      {% endif %}
       <h1>-</h1>
     </div>
   </div>

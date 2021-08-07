@@ -31,6 +31,16 @@ def index(request):
         "direCounter": direCounter,
     }
 
+    if request.method == 'POST':
+        if 'recSubmit' in request.POST:
+            context["recommendHeroes"] = [x for x in radiant_heroes if x != 'empty']
+            return render(request, 'index.html', context)
+
+        if 'predSubmit' in request.POST:
+            dire_heroes = [x for x in radiant_heroes if x != 'empty']
+            context["predictResult"] = len(dire_heroes) * 100
+            return render(request, 'index.html', context)
+
     return render(request, 'index.html', context)
 
 def simulation(request):
