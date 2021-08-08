@@ -44,7 +44,7 @@
     <div id="draftButton" class="row">
       <div class="col-xs-12 col-md-12">
         <button type="button" class="btn btn-primary" onclick="setRadiantToPick();">Pilih Radiant</button>
-        <input type="submit" name="recSubmit" value="Tampilkan Rekomendasi" class="btn btn-success"/>
+        <input type="submit" name="recSubmit" value="Rekomendasikan Hero" class="btn btn-success"/>
         <a class="btn btn-warning" href="{% url 'index' %}">Reset</a>
         <input type="submit" name="predSubmit" value="Prediksi Kemenangan" class="btn btn-danger"/>
         <button type="button" class="btn btn-primary" onclick="setDireToPick();">Pilih Dire</button>
@@ -54,7 +54,7 @@
   <div class="row">
     <!-- list of heroes recommendation -->
     <div id="heroesRecommendation" class="col-xs-12 col-md-10">
-      <p>Daftar Hero Rekomendasi</p>
+      <p>Rekomendasi Hero untuk Tim Radiant</p>
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
           <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="10%">
@@ -63,9 +63,9 @@
     </div>
     <!-- display match prediction result -->
     <div id="predictResult" class="col-xs-12 col-md-2">
-      <p>Persentase Menang</p>
+      <p>Persentase Menang Tim Radiant</p>
       {% if predictResult %}
-        <h1>{{predictResult}}</h1>
+        <h1>{{predictResult}} %</h1>
       {% else %}
         <h1>-</h1>
       {% endif %}
