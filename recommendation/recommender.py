@@ -11,9 +11,9 @@ def getRecommendation(radiant_heroes, dire_heroes):
      list of heroes on radiant and dire team
     """
     # convert heroes name list to id list
-    radiant_heroes = getHeroesId(radiant_heroes)
+    radiant_heroes = convert_heroes_name_to_id(radiant_heroes)
     print("Radiant heroes id list : %s " % (radiant_heroes))
-    dire_heroes = getHeroesId(dire_heroes)
+    dire_heroes = convert_heroes_name_to_id(dire_heroes)
     print("Dire heroes id list : %s " % (dire_heroes))
 
     recommended_heroes = []
@@ -32,27 +32,29 @@ def getRecommendation(radiant_heroes, dire_heroes):
                             if cons_hero not in dire_heroes:
                                 recommended_heroes.append(cons_hero)
 
-    recommended_heroes = getHeroesName(recommended_heroes)
+    recommended_heroes = convert_heroes_id_to_name(recommended_heroes)
     return recommended_heroes
 
-def getHeroesId(hero_names):
+def convert_heroes_name_to_id(heroes_name):
     """
      Return list of hero id from parameter list of hero name
     """
-    hero_ids = []
-    for name in hero_names:
-        idx = names.index(name)
-        hero_ids.append(ids[idx])
+    heroes_id = []
+    for name in heroes_name:
+        if name in names:
+            idx = names.index(name)
+            heroes_id.append(ids[idx])
 
-    return hero_ids
+    return heroes_id
 
-def getHeroesName(hero_ids):
+def convert_heroes_id_to_name(heroes_id):
     """
      Return list of hero name from parameter list of hero id
     """
-    hero_names = []
-    for id in hero_ids:
-        idx = ids.index(id)
-        hero_names.append(names[idx])
+    heroes_name = []
+    for id in heroes_id:
+        if id in ids:
+            idx = ids.index(id)
+            heroes_name.append(names[idx])
 
-    return hero_names
+    return heroes_name
