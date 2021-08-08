@@ -21,4 +21,12 @@ class RecommenderTestCase(TestCase):
         duplicate = len(duplicate)
         self.assertIs(duplicate, 0)
 
-        
+    def test_getrecommendation_not_recommend_heroes_on_empty_input(self):
+        """
+        getRecommendation will not recommend heroes if there is still no hero
+        picked for radiant team
+        """
+        teamA = []
+        teamB = ['Anti-Mage','Axe','Bloodseeker']
+        recommended_heroes = getRecommendation(teamA, teamB)
+        self.assertIs(len(recommended_heroes), 0)
