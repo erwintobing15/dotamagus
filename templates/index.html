@@ -3,8 +3,6 @@
 {% block title_block %}Home{% endblock %}
 {% block body_block %}
 
-<h1>{{ antecedents }}</h1>
-
 <div class="container">
   <form action="{% url 'index' %}" method="post">
     {%  csrf_token %}
@@ -73,8 +71,16 @@
       {% endif %}
     </div>
   </div>
+  <!-- display prediction error message -->
+  {% if prediction_error_message %}
+    <div id="predictErrorMessage" class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close"
+       onclick="this.parentElement.style.display='none'">&times;</a>
+      {{prediction_error_message}}
+    </div>
+  {% endif %}
 </div>
-<br>
+
 <div class="container-fluid">
   <div id="heroesAll" class="row">
     <div class="col-xs-12 col-md-12">

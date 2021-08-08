@@ -32,6 +32,7 @@
 }
 
 #heroesAll {
+  margin-top: 10px;
   border: 1px solid black;
   text-align: center;
 }
@@ -55,4 +56,10 @@
   -ms-transform: scale(0.8); /* IE 9 */
   -webkit-transform: scale(0.8); /* Safari 3-8 */
   transform: scale(0.8);
+}
+
+/* style for prediction result error message */
+#predictErrorMessage {
+  margin-top: 5px;
+  text-align: center;
 }
