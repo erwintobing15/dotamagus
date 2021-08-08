@@ -7,7 +7,7 @@ confidence = pickle.load(open("recommendation/confidence.sav", "rb"))
 
 def getRecommendation(radiant_heroes, dire_heroes):
     """
-     Return list of recomendation heroes based on two parameter which are
+     Return list of recommendation heroes based on two parameter which are
      list of heroes on radiant and dire team
     """
     # convert heroes name list to id list
