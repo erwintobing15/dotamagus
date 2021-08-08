@@ -12,13 +12,13 @@ def getRecommendation(radiant_heroes, dire_heroes):
     """
     # convert heroes name list to id list
     radiant_heroes = convert_heroes_name_to_id(radiant_heroes)
-    print("Radiant heroes id list : %s " % (radiant_heroes))
+    # print("Radiant heroes id list : %s " % (radiant_heroes))
     dire_heroes = convert_heroes_name_to_id(dire_heroes)
-    print("Dire heroes id list : %s " % (dire_heroes))
+    # print("Dire heroes id list : %s " % (dire_heroes))
 
     recommended_heroes = []
     total_rules = int(len(antecedents))
-    print("Rules total : %s" % (total_rules))
+    # print("Rules total : %s" % (total_rules))
 
     # recommend based on every hero on radiant team
     for hero in radiant_heroes:
