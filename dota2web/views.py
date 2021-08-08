@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .hero import names, ids
 
+from recommendation.recommender import getRecommendation
+
 def index(request):
     names.sort()
 
@@ -33,11 +35,19 @@ def index(request):
 
     if request.method == 'POST':
         if 'recSubmit' in request.POST:
-            context["recommendHeroes"] = [x for x in radiant_heroes if x != 'empty']
+
+            radiant_heroes = [x for x in radiant_heroes if x != 'empty']
+            dire_heroes = [x for x in dire_heroes if x != 'empty']
+            print("Recommend based on radiant heroes : %s " % (radiant_heroes))
+
+            recommendHeroes = getRecommendation(radiant_heroes, dire_heroes)
+            print("List of hero recomendation : %s " % (recommendHeroes))
+            context["recommendHeroes"] = recommendHeroes
+
             return render(request, 'index.html', context)
 
         if 'predSubmit' in request.POST:
-            dire_heroes = [x for x in radiant_heroes if x != 'empty']
+            dire_heroes = [x for x in dire_heroes if x != 'empty']
             context["predictResult"] = len(dire_heroes) * 100
             return render(request, 'index.html', context)
 
