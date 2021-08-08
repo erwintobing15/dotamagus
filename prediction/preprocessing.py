@@ -1,4 +1,6 @@
-def preprocessing(radiant_heroes,dire_heroes):
+import pandas as pd
+
+def preprocess(radiant_heroes,dire_heroes):
     # initialize output value
     data_preprocessed = pd.DataFrame()
 

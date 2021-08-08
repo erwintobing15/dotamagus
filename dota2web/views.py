@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .hero import names, ids
 
 from recommendation.recommender import getRecommendation
+from prediction.predict import get_prediction
 
 def index(request):
     names.sort()
@@ -52,7 +53,7 @@ def index(request):
             if len(radiant_heroes) + len(dire_heroes) != 10:
                 context["prediction_error_message"] = "Silahkan pilih 5 hero untuk setiap tim."
             else:
-                context["predictResult"] = len(dire_heroes) * 100
+                context["predictResult"] = get_prediction(radiant_heroes, dire_heroes)
 
             return render(request, 'index.html', context)
 
