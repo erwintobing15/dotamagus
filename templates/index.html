@@ -57,7 +57,7 @@
       <p>Rekomendasi Hero untuk Tim Radiant</p>
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
-          <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="75px%">
+          <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="75px%" onclick="pickHero(this);">
         {% endfor %}
       {% endif %}
     </div>
