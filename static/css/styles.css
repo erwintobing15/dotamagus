@@ -63,3 +63,18 @@
   margin-top: 5px;
   text-align: center;
 }
+
+/* The expanding image container */
+.imgcontainer {
+  position: relative;
+  width: 75px;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  color: white;
+  font-size: 10px;
+}

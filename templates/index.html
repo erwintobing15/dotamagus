@@ -57,7 +57,7 @@
       <p>Rekomendasi Hero untuk Tim Radiant</p>
       {% if recommendHeroes %}
         {% for hero in recommendHeroes %}
-          <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="10%">
+          <img class="zoom" src="../static/images/{{hero}}.png" alt="{{hero}}" width="75px%">
         {% endfor %}
       {% endif %}
     </div>
@@ -88,10 +88,10 @@
       <!-- display all heroes list available to pick using for loop and unavailable hero as empty images -->
       {% for name in heroes_name %}
         {% if name in radiant_heroes or name in dire_heroes %}
-          <img class="zoom" src="{% static 'images/empty.png' %}" alt="empty" width="5%">
+          <img class="zoom" src="{% static 'images/empty.png' %}" alt="empty" width="75px">
         {% else %}
           <img class="zoom" src="../static/images/{{name}}.png" alt="{{name}}"
-          width="5%" onclick="pickHero(this);" id="listHero{{name}}">
+          width="75px" onclick="pickHero(this);" id="listHero{{name}}">
         {% endif %}
       {% endfor %}
     </div>
