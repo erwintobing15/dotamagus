@@ -44,7 +44,7 @@
   transform: scale(1.3);
 }
 
-/* pressed effect when html element clicked */
+pressed effect when html element clicked */
 .zoom:active {
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
@@ -52,29 +52,14 @@
 }
 
 /* pressed effect when heroes on draft team clicked */
-.zoomDraft:active {
-  -ms-transform: scale(0.8); /* IE 9 */
-  -webkit-transform: scale(0.8); /* Safari 3-8 */
-  transform: scale(0.8);
-}
+/* .zoomDraft:active { */
+  /* -ms-transform: scale(0.8); /* IE 9 */ */
+  /* -webkit-transform: scale(0.8); /* Safari 3-8 */ */
+  /* transform: scale(0.8); */
+/* } */
 
 /* style for prediction result error message */
 #predictErrorMessage {
   margin-top: 5px;
   text-align: center;
-}
-
-/* The expanding image container */
-.imgcontainer {
-  position: relative;
-  width: 75px;
-}
-
-/* Expanding image text */
-#imgtext {
-  position: absolute;
-  bottom: 3px;
-  left: 3px;
-  color: white;
-  font-size: 10px;
 }
