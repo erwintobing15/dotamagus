@@ -51,15 +51,15 @@ pressed effect when html element clicked */
   transform: scale(1.1);
 }
 
+/* style for error message */
+.errorMessage {
+  margin-top: 5px;
+  text-align: center;
+}
+
 /* pressed effect when heroes on draft team clicked */
 /* .zoomDraft:active { */
   /* -ms-transform: scale(0.8); /* IE 9 */ */
   /* -webkit-transform: scale(0.8); /* Safari 3-8 */ */
   /* transform: scale(0.8); */
 /* } */
-
-/* style for prediction result error message */
-#predictErrorMessage {
-  margin-top: 5px;
-  text-align: center;
-}

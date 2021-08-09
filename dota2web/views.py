@@ -40,10 +40,15 @@ def index(request):
         dire_heroes = [x for x in dire_heroes if x != 'empty']
 
         if 'recSubmit' in request.POST:
-            print("Recommend based on radiant heroes : %s " % (radiant_heroes))
-            recommendHeroes = getRecommendation(radiant_heroes, dire_heroes)
-            print("List of hero recomendation : %s " % (recommendHeroes))
-            context["recommendHeroes"] = recommendHeroes
+            # if there is no radiant hero picke then return error message
+            # elses proceed to get recomendation
+            if len(radiant_heroes) == 0:
+                context["recommendation_error_message"] = "Silahkan pilih minimal 1 hero tim radiant"
+            else:
+                print("Recommend based on radiant heroes : %s " % (radiant_heroes))
+                recommendHeroes = getRecommendation(radiant_heroes, dire_heroes)
+                print("List of hero recomendation : %s " % (recommendHeroes))
+                context["recommendHeroes"] = recommendHeroes
 
             return render(request, 'index.html', context)
 
@@ -51,7 +56,7 @@ def index(request):
             # if total hero picked for dire and radiant team is not 10 then pass an error
             # else pass prediction result in context
             if len(radiant_heroes) + len(dire_heroes) != 10:
-                context["prediction_error_message"] = "Silahkan pilih 5 hero untuk setiap tim."
+                context["prediction_error_message"] = "Silahkan pilih 5 hero untuk setiap tim"
             else:
                 context["predictResult"] = get_prediction(radiant_heroes, dire_heroes)
 

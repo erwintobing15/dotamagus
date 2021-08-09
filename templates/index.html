@@ -73,10 +73,18 @@
   </div>
   <!-- display prediction error message -->
   {% if prediction_error_message %}
-    <div id="predictErrorMessage" class="alert alert-danger alert-dismissible">
+    <div class="alert alert-danger alert-dismissible errorMessage">
       <a href="#" class="close" data-dismiss="alert" aria-label="close"
        onclick="this.parentElement.style.display='none'">&times;</a>
       {{prediction_error_message}}
+    </div>
+  {% endif %}
+  <!-- display recommndation error message -->
+  {% if recommendation_error_message %}
+    <div class="alert alert-danger alert-dismissible errorMessage">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close"
+       onclick="this.parentElement.style.display='none'">&times;</a>
+      {{recommendation_error_message}}
     </div>
   {% endif %}
 </div>
