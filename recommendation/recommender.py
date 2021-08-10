@@ -1,5 +1,6 @@
 import pickle
 from dota2web.hero import names, ids
+from .filtering import filter_by_roles
 
 antecedents = pickle.load(open("recommendation/antecedents.sav", "rb"))
 consequents = pickle.load(open("recommendation/consequents.sav", "rb"))
@@ -32,6 +33,7 @@ def getRecommendation(radiant_heroes, dire_heroes):
                             if cons_hero not in dire_heroes:
                                 recommended_heroes.append(cons_hero)
 
+    # recommended_heroes = filter_by_roles(recommended_heroes,radiant_heroes)
     recommended_heroes = convert_heroes_id_to_name(recommended_heroes)
     return recommended_heroes
 
