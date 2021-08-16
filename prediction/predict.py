@@ -16,6 +16,6 @@ def get_prediction(radiant_heroes, dire_heroes):
 
     # run prediction
     predict_result = model.predict(input_data)
-    win_rate = int(predict_result[0][1] * 100)
+    win_rate = int(predict_result * 100)
 
     return win_rate
