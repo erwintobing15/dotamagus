@@ -2,7 +2,8 @@ from recommendation.recommender import convert_heroes_name_to_id
 from .preprocessing import preprocess
 
 # from tensorflow import keras
-import xgboost as xgb
+# import xgboost as xgb
+import pickle
 
 def get_prediction(radiant_heroes, dire_heroes):
 
@@ -14,8 +15,9 @@ def get_prediction(radiant_heroes, dire_heroes):
 
     # import model
     # model = keras.models.load_model("prediction/model.h5")
-    model = xgb.XGBClassifier()
-    model.load_model("prediction/model.txt")
+    # model = xgb.XGBClassifier()
+    # model.load_model("prediction/model.txt")
+    model = pickle.load(open('prediction/model.sav', 'rb'))
 
     # run prediction
     predict_result = model.predict_proba(input_data)
