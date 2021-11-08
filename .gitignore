@@ -1,5 +1,0 @@
-# ignore all .sav files
-*.sav
-
-# ignore all .h5 files
-*.h5
