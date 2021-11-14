@@ -20,3 +20,9 @@ Try live demo [here](https://dotamagos.pythonanywhere.com/).
 * Recommend heroes based on at least one hero picked
 * Predict the win rate of a team of heroes picked using a recommendation system against the other team
 * Give an alert message for a recommendation or match prediction error
+
+## System Design
+![system](../assets/system.png)
+
+## Paper
+Read more detail of this project on this [paper](../assets/paper.pdf).
