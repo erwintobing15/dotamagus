@@ -1,6 +1,6 @@
 # Dotamagus
 
-> This is a recommendation system for Dota 2 hero and match prediction webapp. It provides hero suggestions from the combination of heroes that often win when they are picked together. The recommendation system is built based on Association Rules using the FP-Growth algorithm. The recommendation algorithm is a custom made search algorithm with time complexity O(n³) (because I just focus on how to make it work, but will need to optimize it later on). For match prediction I originaly used neural nerwork algorithm Multilayer Percetron using tensorflow. But because installing tensorflow need 500MB or more storage space, I used logistic regression instead for the sake of deployment. The model and the web app is built with python and django. You can find the association rules and model source code [here](https://github.com/erwintobing15/rules-model).
+> Web-based Dota 2 hero recommendation system and match prediction. The system provides hero suggestions from the combination of heroes that often win when they are picked together. The recommendation system is built based on Association Rules which mined from a dataset of 621,064 Dota 2 matches using the FP-Growth algorithm. I developed 3 machine learning models Multilayer Perceptron, Logistic Regressing, and XGBoost with a similar accuracy of 63%. For deployment, Logistic Regressing is used which has the lowest storage need for dependencies installation. The results of the recommendation system performance obtained a success rate of 81% from 1000 simulations. The source code for data, association rules mining, and model training can be found [here](https://github.com/erwintobing15/rules-model).
 
 ## Demo
 Try live demo [here](https://dotamagos.pythonanywhere.com/).
@@ -8,7 +8,7 @@ Try live demo [here](https://dotamagos.pythonanywhere.com/).
 ## Screenshoot
 ![home](../assets/home.PNG)
 
-## Technologies 
+## Technologies
 * Python
 * Django
 * HTML
@@ -17,5 +17,6 @@ Try live demo [here](https://dotamagos.pythonanywhere.com/).
 * Bootstrap
 
 ## Features
-* Recommend heroes after picking atleast one hero
-* Prediction win percentage of radiant team (heroes picked with recommendation)
+* Recommend heroes based on at least one hero picked
+* Predict the win rate of a team of heroes picked using a recommendation system against the other team
+* Give an alert message for a recommendation or match prediction error
